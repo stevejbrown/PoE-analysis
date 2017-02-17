@@ -45,11 +45,13 @@ def single_call_to_table(league_list, cursor, table):
     pass
 
 
-def leagues_to_table(cursor, table, leagues_per_call, max_offset):
+def leagues_to_table(cursor, conn, table, leagues_per_call, max_offset):
     ''' Leagues via the Path of Exile API and inputs them
         in an SQLite table
 
         :param cursor: sqlite3.Cursor. A cursor connected to the database that
+            contains the table to input leagues into.
+        :param conn: sqlite3.Connection. A connection to the database that
             contains the table to input leagues into.
         :param table: String. The SQLite table name to store the leagues.
         :param leagues_per_call: Positive int. Number of leagues to get each
@@ -72,20 +74,23 @@ def leagues_to_table(cursor, table, leagues_per_call, max_offset):
         offset += len(league_list)
         if max_offset != None and offset > max_offset:
             break
+        conn.commit()
         time.sleep(5)  # Wait so that the API does not throttle my requests
     pass
 
 
-def all_leagues_to_table(cursor, table):
+def all_leagues_to_table(cursor, conn, table):
     ''' Collects all of the leagues via the Path of Exile API and inputs them
         in an SQLite table
     
         :param cursor: sqlite3.Cursor. A cursor connected to the database that
             contains the table to input leagues into.
+        :param conn: sqlite3.Connection. A connection to the database that
+            contains the table to input leagues into.
         :param table: String. The SQLite table name to store the leagues.
         :return: Does not return.
     '''
-    leagues_to_table(cursor, table, leagues_per_call=50, max_offset=None)
+    leagues_to_table(cursor, conn, table, leagues_per_call=50, max_offset=None)
     pass
 
 
@@ -132,17 +137,19 @@ def ladder_to_table(league_id, cursor, ladder_table):
     pass
 
 
-def all_ladders_to_table(league_ids, cursor, ladder_table):
+def all_ladders_to_table(cursor, conn, league_ids, ladder_table):
     """ Given a list of league_ids populates ladder_table with their ladders
 
-        :param league_ids: List.
         :param cursor: sqlite3.Cursor. A cursor connected to the database that
              contains the table to input leagues into.
-         :param ladder_table: String. The SQLite table name to store the ladder.
-         :return: Does not return.
+        :param conn: sqlite3.Connection. A connection to the database that
+            contains the table to input leagues into.
+        :param league_ids: List.
+        :param ladder_table: String. The SQLite table name to store the ladder.
+        :return: Does not return.
     """
-    i = 0
-    for league_id in league_ids:
+    for i, league_id in enumerate(league_ids):
         if i % 100:
             print('On league {}'.format(i))
         ladder_to_table(league_id, cursor, ladder_table)
+        conn.commit()
