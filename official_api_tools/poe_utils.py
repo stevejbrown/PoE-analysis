@@ -14,13 +14,13 @@ def write_league_to_table(league, cursor, table):
         :param table: String. The table to insert leagues into.
         :return: Does not return.
     '''
-    league_tuple = (str(league['id']),
-                    str(league['description']),
-                    str(league['startAt']),
-                    str(league['endAt']),
-                    str(league['registerAt']),
-                    str(league['url']),
-                    str(league['rules']),
+    league_tuple = (unicode(league['id']),
+                    unicode(league['description']),
+                    unicode(league['startAt']),
+                    unicode(league['endAt']),
+                    unicode(league['registerAt']),
+                    unicode(league['url']),
+                    unicode(league['rules']),
                     int(league['event']))
     cursor.execute('''  INSERT OR IGNORE INTO
                         {} VALUES (?,?,?,?,?,?,?,?)
