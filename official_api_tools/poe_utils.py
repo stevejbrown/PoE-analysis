@@ -141,7 +141,7 @@ def ladder_to_table(league_id, cursor, ladder_table):
     pass
 
 
-def all_ladders_to_table(cursor, conn, league_ids, ladder_table):
+def all_ladders_to_table(cursor, conn, league_ids, ladder_table, start=0):
     """ Given a list of league_ids populates ladder_table with their ladders
 
         :param cursor: sqlite3.Cursor. A cursor connected to the database that
@@ -150,10 +150,18 @@ def all_ladders_to_table(cursor, conn, league_ids, ladder_table):
             contains the table to input leagues into.
         :param league_ids: List.
         :param ladder_table: String. The SQLite table name to store the ladder.
+        :param start: Int. Index of league_ids to start scraping.
         :return: Does not return.
     """
     for i, league_id in enumerate(league_ids):
-        if i % 100:
-            print('On league {}'.format(i))
-        ladder_to_table(league_id, cursor, ladder_table)
-        conn.commit()
+        if i < start:
+            continue
+        else:
+            if i % 500 == 0:
+                time.sleep(300)
+            elif i % 100 == 0:
+                time.sleep(60)
+            print(u'On league {0}: {1}'.format(i, league_id))
+            ladder_to_table(league_id, cursor, ladder_table)
+            conn.commit()
+            time.sleep(6)
