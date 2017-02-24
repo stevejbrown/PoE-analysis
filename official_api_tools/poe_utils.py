@@ -122,6 +122,10 @@ def ladder_to_table(league_id, cursor, ladder_table):
             twitch = entry['account']['twitch']['name']
         else:
             twitch = 'NULL'
+        if 'experience' in entry['character']:
+            experience = int(entry['character']['experience'])
+        else:
+            experience = None
         ladder_tuple = (unicode(league_id),
                         unicode(entry['account']['name']),
                         unicode(twitch),
@@ -129,7 +133,7 @@ def ladder_to_table(league_id, cursor, ladder_table):
                         unicode(entry['character']['name']),
                         int(entry['rank']),
                         unicode(entry['character']['class']),
-                        int(entry['character']['experience']),
+                        experience,
                         int(entry['dead']))
         cursor.execute(''' INSERT OR IGNORE INTO {}
                            VALUES (?,?,?,?,?,?,?,?, ?)
