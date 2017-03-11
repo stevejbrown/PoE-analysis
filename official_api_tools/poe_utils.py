@@ -1,7 +1,7 @@
 from __future__ import print_function
 import time
-import pathofexile.pathofexile.api as poe
-import pathofexile.pathofexile.ladder as poe_ladder
+import pathofexile.api as poe
+import pathofexile.ladder as poe_ladder
 
 
 def write_league_to_table(league, cursor, table):
