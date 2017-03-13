@@ -1,0 +1,118 @@
+name: pathofexile_scraping
+channels:
+- !!python/unicode
+  'defaults'
+dependencies:
+- !!python/unicode
+  'appnope=0.1.0=py27_0'
+- !!python/unicode
+  'backports_abc=0.4=py27_0'
+- !!python/unicode
+  'decorator=4.0.9=py27_0'
+- !!python/unicode
+  'freetype=2.5.5=0'
+- !!python/unicode
+  'gevent=1.0.1=py27_0'
+- !!python/unicode
+  'greenlet=0.4.9=py27_0'
+- !!python/unicode
+  'ipykernel=4.3.1=py27_0'
+- !!python/unicode
+  'ipython=4.1.2=py27_1'
+- !!python/unicode
+  'ipython_genutils=0.1.0=py27_0'
+- !!python/unicode
+  'ipywidgets=4.1.1=py27_0'
+- !!python/unicode
+  'jinja2=2.8=py27_0'
+- !!python/unicode
+  'jsonschema=2.4.0=py27_0'
+- !!python/unicode
+  'jupyter=1.0.0=py27_2'
+- !!python/unicode
+  'jupyter_client=4.2.2=py27_0'
+- !!python/unicode
+  'jupyter_console=4.1.1=py27_0'
+- !!python/unicode
+  'jupyter_core=4.1.0=py27_0'
+- !!python/unicode
+  'libpng=1.6.17=0'
+- !!python/unicode
+  'markupsafe=0.23=py27_0'
+- !!python/unicode
+  'mistune=0.7.2=py27_1'
+- !!python/unicode
+  'nbconvert=4.1.0=py27_0'
+- !!python/unicode
+  'nbformat=4.0.1=py27_0'
+- !!python/unicode
+  'notebook=4.1.0=py27_2'
+- !!python/unicode
+  'openssl=1.0.2g=0'
+- !!python/unicode
+  'path.py=8.1.2=py27_1'
+- !!python/unicode
+  'pexpect=4.0.1=py27_0'
+- !!python/unicode
+  'pickleshare=0.5=py27_0'
+- !!python/unicode
+  'pip=8.1.1=py27_0'
+- !!python/unicode
+  'ptyprocess=0.5=py27_0'
+- !!python/unicode
+  'pygments=2.1.1=py27_0'
+- !!python/unicode
+  'pyqt=4.11.4=py27_1'
+- !!python/unicode
+  'python=2.7.11=0'
+- !!python/unicode
+  'python.app=1.2=py27_4'
+- !!python/unicode
+  'pyzmq=15.2.0=py27_0'
+- !!python/unicode
+  'qt=4.8.7=1'
+- !!python/unicode
+  'qtconsole=4.2.0=py27_0'
+- !!python/unicode
+  'readline=6.2=2'
+- !!python/unicode
+  'setuptools=20.3=py27_0'
+- !!python/unicode
+  'simplegeneric=0.8.1=py27_0'
+- !!python/unicode
+  'singledispatch=3.4.0.3=py27_0'
+- !!python/unicode
+  'sip=4.16.9=py27_0'
+- !!python/unicode
+  'six=1.10.0=py27_0'
+- !!python/unicode
+  'sqlite=3.9.2=0'
+- !!python/unicode
+  'ssl_match_hostname=3.4.0.2=py27_0'
+- !!python/unicode
+  'terminado=0.5=py27_1'
+- !!python/unicode
+  'tk=8.5.18=0'
+- !!python/unicode
+  'tornado=4.3=py27_0'
+- !!python/unicode
+  'traitlets=4.2.1=py27_0'
+- !!python/unicode
+  'wheel=0.29.0=py27_0'
+- !!python/unicode
+  'zlib=1.2.8=0'
+- pip:
+  - backports-abc==0.4
+  - backports.ssl-match-hostname==3.4.0.2
+  - beautifulsoup4==4.3.2
+  - flask==0.10.1
+  - grequests==0.2.0
+  - gunicorn==19.0.0
+  - ipython-genutils==0.1.0
+  - itsdangerous==0.24
+  - jupyter-client==4.2.2
+  - jupyter-console==4.1.1
+  - jupyter-core==4.1.0
+  - requests==2.3.0
+  - ujson==1.33
+  - werkzeug==0.9.6
